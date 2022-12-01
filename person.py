@@ -55,7 +55,7 @@ if __name__ == "__main__":
 
     # Test an infected person. An infected person has an infection/virus
     # Create a Virus object to give a Person object an infection
-    virus = Virus("Dysentery", 0.7, 0.2)
+    virus = Virus("Dysentery", 0.07, 0.2)
     # Create a Person object and give them the virus infection
     infected_person = Person(3, False, virus)
     # TODO: complete your own assert statements that test
@@ -79,8 +79,12 @@ if __name__ == "__main__":
 
     did_survived = 0
     did_not_survive = 0
+    # Count the people that survived and did not survive:
+
+    # TODO Loop over all of the people
+    # TODO If a person is_alive True add one to did_survive
+    # TODO If a person is_alive False add one to did_not_survive
     for person in people:
-        #     # For each person call that person's did_survive_infection method
         survived = person.did_survive_infection()
         if survived:
             did_survived += 1
@@ -89,17 +93,28 @@ if __name__ == "__main__":
 
     print(f"Survived: {did_survived}")
     print(f"Died: {did_not_survive}")
-    # Count the people that survived and did not survive:
-
-    # TODO Loop over all of the people
-    # TODO If a person is_alive True add one to did_survive
-    # TODO If a person is_alive False add one to did_not_survive
 
     # TODO When the loop is complete print your results.
     # The results should roughly match the mortality rate of the virus
     # For example if the mortality rate is 0.2 rough 20% of the people
     # should succumb.
 
+    uninfected_people = []
+    infected_people = []
+
+    for i in range(0, 100):
+        person = Person(i, False)
+        uninfected_people.append(person)
+
+    for person in uninfected_people:
+        random_number = random.random()
+        if random_number < virus.repro_rate:
+            person.infection = virus
+            infected_people.append(person)
+
+    print(
+        f"With a reproductive rate of 0.07 and out of 100 people, there were {len(infected_people)} infections."
+    )
     # Stretch challenge!
     # Check the infection rate of the virus by making a group of
     # unifected people. Loop over all of your people.
