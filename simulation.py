@@ -50,21 +50,26 @@ class Simulation(object):
         # or if all of the living people have been vaccinated.
         # TODO: Loop over the list of people in the population. Return True
         # if the simulation should continue or False if not.
-        pass
+        for person in self.people:
+            if person.is_alive:
+                if not person.is_vaccinated:
+                    return True
+        return False
 
     def run(self):
         # This method starts the simulation. It should track the number of
         # steps the simulation has run and check if the simulation should
         # continue at the end of each step.
-
         time_step_counter = 0
         should_continue = True
-
+        pass
         while should_continue:
             # TODO: Increment the time_step_counter
+            time_step_counter += 1
             # TODO: for every iteration of this loop, call self.time_step()
             # Call the _simulation_should_continue method to determine if
             # the simulation should continue
+            self.time_step()
             should_continue = self._simulation_should_continue()
             pass
 
@@ -90,17 +95,28 @@ class Simulation(object):
     def interaction(self, infected_person, random_person):
         # TODO: Finish this method.
         # The possible cases you'll need to cover are listed below:
-        # random_person is vaccinated:
+
+        if not random_person.is_alive:
+            return
+
+        if random_person.is_vaccinated:
+            pass
         #     nothing happens to random person.
         # random_person is already infected:
+        if random_person.infection:
+            pass
         #     nothing happens to random person.
         # random_person is healthy, but unvaccinated:
+        if not random_person.infection and not random_person.is_vaccinated:
+            random_number = random.random()
+            if random_number < self.virus.repro_rate:
+                pass
+
         #     generate a random number between 0.0 and 1.0.  If that number is smaller
         #     than repro_rate, add that person to the newly infected array
         #     Simulation object's newly_infected array, so that their infected
         #     attribute can be changed to True at the end of the time step.
         # TODO: Call logger method during this method.
-        pass
 
     def _infect_newly_infected(self):
         # TODO: Call this method at the end of every time step and infect each Person.
