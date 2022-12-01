@@ -27,13 +27,13 @@ class Person(object):
         if self.infection:
             random_percent = random.random()
             if random_percent < self.infection.mortality_rate:
-                print(f"Percent rolled: ", random_percent)
-                print("you are dead, sorry.")
                 self.is_alive = False
                 return False
             else:
                 self.is_vaccinated = True
                 return True
+        else:
+            return True
 
 
 if __name__ == "__main__":
@@ -61,27 +61,35 @@ if __name__ == "__main__":
     # TODO: complete your own assert statements that test
     # the values of each attribute
     # assert ...
-
+    assert type(infected_person.did_survive_infection()) is bool
+    assert infected_person._id == 3
+    assert type(infected_person.is_vaccinated) is bool
     # You need to check the survival of an infected person. Since the chance
     # of survival is random you need to check a group of people.
     # Create a list to hold 100 people. Use the loop below to make 100 people
     people = []
-    for i in range(1, 100):
+    for i in range(0, 100):
         # TODO Make a person with an infection
+        person = Person(i, False, virus)
         # TODO Append the person to the people list
-        pass
+        people.append(person)
 
     # Now that you have a list of 100 people. Resolve whether the Person
     # survives the infection or not by looping over the people list.
 
-    # for person in people:
-    #     # For each person call that person's did_survive_infection method
-    #     survived = person.did_survive_infection()
+    did_survived = 0
+    did_not_survive = 0
+    for person in people:
+        #     # For each person call that person's did_survive_infection method
+        survived = person.did_survive_infection()
+        if survived:
+            did_survived += 1
+        else:
+            did_not_survive += 1
 
+    print(f"Survived: {did_survived}")
+    print(f"Died: {did_not_survive}")
     # Count the people that survived and did not survive:
-
-    # did_survived = 0
-    # did_not_survive = 0
 
     # TODO Loop over all of the people
     # TODO If a person is_alive True add one to did_survive
