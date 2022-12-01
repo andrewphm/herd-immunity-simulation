@@ -1,0 +1,5 @@
+Population size: 1000
+Vaccinated rate: 0.12
+Virus: Sniffles
+Mortality rate: 0.12
+Virus reproductive rate: 0.5

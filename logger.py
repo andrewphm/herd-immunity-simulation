@@ -30,7 +30,15 @@ class Logger(object):
         # the 'a' mode to append a new log to the end, since 'w' overwrites the file.
         # NOTE: Make sure to end every line with a '/n' character to ensure that each
         # event logged ends up on a separate line!
-        pass
+        with open(self.file_name, "w") as outfile:
+            mytext = [
+                f"Population size: {pop_size}\n",
+                f"Vaccinated rate: {vacc_percentage}\n",
+                f"Virus: {virus_name}\n",
+                f"Mortality rate: {mortality_rate}\n",
+                f"Virus reproductive rate: {basic_repro_num}\n",
+            ]
+            outfile.writelines(mytext)
 
     def log_interactions(
         self, step_number, number_of_interactions, number_of_new_infections
@@ -39,7 +47,9 @@ class Logger(object):
         # represent all the possible edge cases. Use the values passed along with each person,
         # along with whether they are sick or vaccinated when they interact to determine
         # exactly what happened in the interaction and create a String, and write to your logfile.
-        pass
+
+        with open(self.file_name, "a") as outfile:
+            pass
 
     def log_infection_survival(
         self, step_number, population_count, number_of_new_fatalities
