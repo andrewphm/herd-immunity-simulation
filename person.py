@@ -28,9 +28,11 @@ class Person(object):
             random_percent = random.random()
             if random_percent < self.infection.mortality_rate:
                 self.is_alive = False
+                self.infection = None
                 return False
             else:
                 self.is_vaccinated = True
+                self.infection = None
                 return True
         else:
             return True

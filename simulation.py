@@ -11,13 +11,6 @@ class Simulation(object):
         # TODO: Create a Logger object and bind it to self.logger.
         # Remember to call the appropriate logger method in the corresponding parts of the simulation.
         logger = Logger("sim-logs.txt")
-        logger.write_metadata(
-            pop_size,
-            vacc_percentage,
-            virus.name,
-            virus.mortality_rate,
-            virus.repro_rate,
-        )
         self.logger = logger
         # TODO: Store the virus in an attribute
         self.virus = virus
@@ -83,7 +76,14 @@ class Simulation(object):
         # continue at the end of each step.
         time_step_counter = 0
         should_continue = True
-        pass
+        self.logger.write_metadata(
+            pop_size,
+            vacc_percentage,
+            virus.name,
+            virus.mortality_rate,
+            virus.repro_rate,
+        )
+
         while should_continue:
             # TODO: Increment the time_step_counter
             time_step_counter += 1
@@ -95,12 +95,9 @@ class Simulation(object):
             should_continue = self._simulation_should_continue()
             pass
 
-        # TODO: Write meta data to the logger. This should be starting
-        # statistics for the simulation. It should include the initial
-        # population size and the virus.
-
         # TODO: When the simulation completes you should conclude this with
         # the logger. Send the final data to the logger.
+        self.logger.end_log()
 
     def time_step(self):
         # This method will simulate interactions between people, calulate

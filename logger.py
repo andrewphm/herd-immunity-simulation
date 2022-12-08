@@ -31,14 +31,20 @@ class Logger(object):
         # NOTE: Make sure to end every line with a '/n' character to ensure that each
         # event logged ends up on a separate line!
         with open(self.file_name, "w") as outfile:
-            mytext = [
+            my_text = [
                 f"Population size: {pop_size}\n",
                 f"Vaccinated rate: {vacc_percentage}\n",
                 f"Virus: {virus_name}\n",
                 f"Mortality rate: {mortality_rate}\n",
                 f"Virus reproductive rate: {basic_repro_num}\n",
             ]
-            outfile.writelines(mytext)
+            outfile.write(
+                "----------------------- BEGIN SIMULATION -----------------------\n"
+            )
+            outfile.writelines(my_text)
+            outfile.write(
+                "----------------------------------------------------------------\n\n"
+            )
 
     def log_interactions(
         self, step_number, number_of_interactions, number_of_new_infections
@@ -62,3 +68,11 @@ class Logger(object):
     def log_time_step(self, time_step_number):
         #
         pass
+
+    def end_log(self):
+        with open(self.file_name, "a") as outfile:
+            outfile.write("\n")
+            outfile.write(
+                "----------------------- END OF SIMULATION -----------------------\n"
+            )
+            outfile.write("\n")
