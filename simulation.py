@@ -7,6 +7,7 @@ from virus import Virus
 
 
 (
+    file_name,
     pop_size,
     vacc_percentage,
     virus_name,
@@ -14,6 +15,13 @@ from virus import Virus
     repro_rate,
     initial_infected,
 ) = sys.argv
+
+
+pop_size = int(pop_size)
+vacc_percentage = float(vacc_percentage)
+mortality_rate = float(mortality_rate)
+repro_rate = float(repro_rate)
+initial_infected = int(initial_infected)
 
 
 class Simulation(object):
