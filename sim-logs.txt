@@ -1,48 +1,55 @@
------------------------ BEGIN SIMULATION -----------------------
-Population size: 10000
+--------------------- BEGIN SIMULATION --------------------
+Population size: 100000
 Vaccinated rate: 0.12
 Virus: Sniffles
-Mortality rate: 0.8
-Virus reproductive rate: 0.1
-----------------------------------------------------------------
+Mortality rate: 0.1
+Virus reproductive rate: 0.2
+Initial infected: 10
+-----------------------------------------------------------
 
 
 ----------------------- STEP 1 -----------------------
-Number of new deaths: 8
-Number of newly infected: 88
------------------------  END  -----------------------
+Number of new deaths: 1
+Number of newly infected: 169
+Number of interactions this step: 1000
+-----------------------  END  ------------------------
 
 
 ----------------------- STEP 2 -----------------------
-Number of new deaths: 75
-Number of newly infected: 713
------------------------  END  -----------------------
+Number of new deaths: 20
+Number of newly infected: 2933
+Number of interactions this step: 16900
+-----------------------  END  ------------------------
 
 
 ----------------------- STEP 3 -----------------------
-Number of new deaths: 583
-Number of newly infected: 4061
------------------------  END  -----------------------
+Number of new deaths: 284
+Number of newly infected: 37385
+Number of interactions this step: 293300
+-----------------------  END  ------------------------
 
 
 ----------------------- STEP 4 -----------------------
-Number of new deaths: 3225
-Number of newly infected: 3886
------------------------  END  -----------------------
+Number of new deaths: 3709
+Number of newly infected: 47482
+Number of interactions this step: 3738500
+-----------------------  END  ------------------------
 
 
 ----------------------- STEP 5 -----------------------
-Number of new deaths: 3093
-Number of newly infected: 42
------------------------  END  -----------------------
+Number of new deaths: 4868
+Number of newly infected: 21
+Number of interactions this step: 4748200
+-----------------------  END  ------------------------
 
 
 ----------------------- STEP 6 -----------------------
-Number of new deaths: 36
+Number of new deaths: 4
 Number of newly infected: 0
------------------------  END  -----------------------
+Number of interactions this step: 2100
+-----------------------  END  ------------------------
 
 
------------------------ END OF SIMULATION -----------------------
-Total deaths: 7020
-Total infected: 8800
+------------------- END OF SIMULATION ------------------
+Total deaths: 8886
+Total infected: 88000

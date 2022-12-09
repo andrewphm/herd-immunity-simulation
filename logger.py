@@ -22,7 +22,13 @@ class Logger(object):
     #   of vaccinated, and the number of steps to reach the end of the simulation.
 
     def write_metadata(
-        self, pop_size, vacc_percentage, virus_name, mortality_rate, basic_repro_num
+        self,
+        pop_size,
+        vacc_percentage,
+        virus_name,
+        mortality_rate,
+        basic_repro_num,
+        initial_infected,
     ):
         # TODO: Finish this method. This line of metadata should be tab-delimited
         # it should create the text file that we will store all logs in.
@@ -37,13 +43,14 @@ class Logger(object):
                 f"Virus: {virus_name}\n",
                 f"Mortality rate: {mortality_rate}\n",
                 f"Virus reproductive rate: {basic_repro_num}\n",
+                f"Initial infected: {initial_infected}\n",
             ]
             outfile.write(
-                "----------------------- BEGIN SIMULATION -----------------------\n"
+                "--------------------- BEGIN SIMULATION --------------------\n"
             )
             outfile.writelines(my_text)
             outfile.write(
-                "----------------------------------------------------------------\n\n"
+                "-----------------------------------------------------------\n\n"
             )
 
     def log_interactions(
@@ -57,7 +64,9 @@ class Logger(object):
         with open(self.file_name, "a") as outfile:
             pass
 
-    def log_step_summary(self, step_number, new_deaths, new_infections):
+    def log_step_summary(
+        self, step_number, new_deaths, new_infections, num_interactions
+    ):
         with open(self.file_name, "a") as outfile:
             outfile.write("\n")
             outfile.write(
@@ -65,8 +74,9 @@ class Logger(object):
             )
             outfile.write(f"Number of new deaths: {new_deaths}\n")
             outfile.write(f"Number of newly infected: {new_infections}\n")
+            outfile.write(f"Number of interactions this step: {num_interactions}\n")
             outfile.write(
-                f"-----------------------  END  -----------------------\n\n"
+                f"-----------------------  END  ------------------------\n\n"
             )
 
     def log_infection_survival(
@@ -85,7 +95,7 @@ class Logger(object):
         with open(self.file_name, "a") as outfile:
             outfile.write("\n")
             outfile.write(
-                "----------------------- END OF SIMULATION -----------------------\n"
+                "------------------- END OF SIMULATION ------------------\n"
             )
             outfile.write(f"Total deaths: {total_deaths}\n")
             outfile.write(f"Total infected: {total_infected}")

@@ -6,6 +6,16 @@ from logger import Logger
 from virus import Virus
 
 
+(
+    pop_size,
+    vacc_percentage,
+    virus_name,
+    mortality_rate,
+    repro_rate,
+    initial_infected,
+) = sys.argv
+
+
 class Simulation(object):
     def __init__(self, virus, pop_size, vacc_percentage, initial_infected=1):
         logger = Logger("sim-logs.txt")
@@ -20,6 +30,7 @@ class Simulation(object):
         self.num_new_deaths = 0
         self.num_of_infected = 0
         self.total_deaths = 0
+        self.num_interactions = 0
 
     def _create_population(self):
         people = []
@@ -54,7 +65,6 @@ class Simulation(object):
         """
 
         if len(self.newly_infected) == 0:
-            print("firing herd immunity")
             return False
 
         for person in self.people:
@@ -72,13 +82,15 @@ class Simulation(object):
             virus.name,
             virus.mortality_rate,
             virus.repro_rate,
+            self.initial_infected,
         )
 
         while should_continue:
             time_step_counter += 1
-            self.time_step()
             self.num_of_infected = 0
             self.num_new_deaths = 0
+            self.num_interactions = 0
+            self.time_step()
 
             self._check_if_survived_infection()
             self.total_deaths += self.num_new_deaths
@@ -87,7 +99,10 @@ class Simulation(object):
             self.total_infected += self.num_of_infected
 
             self.logger.log_step_summary(
-                time_step_counter, self.num_new_deaths, self.num_of_infected
+                time_step_counter,
+                self.num_new_deaths,
+                self.num_of_infected,
+                self.num_interactions,
             )
 
         self.logger.end_log(self.total_deaths, self.total_infected)
@@ -99,6 +114,7 @@ class Simulation(object):
                     random_person = random.choice(self.people)
                     while not random_person.is_alive:
                         random_person = random.choice(self.people)
+                    self.num_interactions += 1
                     self.interaction(random_person)
 
     def interaction(self, random_person):
@@ -130,19 +146,9 @@ class Simulation(object):
 
 
 if __name__ == "__main__":
-    # Test your simulation here
-    virus_name = "Sniffles"
-    repro_num = 0.1
-    mortality_rate = 0.8
-    virus = Virus(virus_name, repro_num, mortality_rate)
 
-    # Set some values used by the simulation
-    pop_size = 10000
-    vacc_percentage = 0.12
-    initial_infected = 10
+    virus = Virus(virus_name, repro_rate, mortality_rate)
 
-    # Make a new instance of the imulation
-    # virus = Virus(virus, pop_size, vacc_percentage, initial_infected)
     sim = Simulation(virus, pop_size, vacc_percentage, initial_infected)
 
     sim.run()
