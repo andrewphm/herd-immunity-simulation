@@ -1,11 +1,48 @@
 ----------------------- BEGIN SIMULATION -----------------------
-Population size: 1000
+Population size: 10000
 Vaccinated rate: 0.12
 Virus: Sniffles
-Mortality rate: 0.12
-Virus reproductive rate: 0.5
+Mortality rate: 0.8
+Virus reproductive rate: 0.1
 ----------------------------------------------------------------
 
 
------------------------ END OF SIMULATION -----------------------
+----------------------- STEP 1 -----------------------
+Number of new deaths: 8
+Number of newly infected: 88
+-----------------------  END  -----------------------
 
+
+----------------------- STEP 2 -----------------------
+Number of new deaths: 75
+Number of newly infected: 713
+-----------------------  END  -----------------------
+
+
+----------------------- STEP 3 -----------------------
+Number of new deaths: 583
+Number of newly infected: 4061
+-----------------------  END  -----------------------
+
+
+----------------------- STEP 4 -----------------------
+Number of new deaths: 3225
+Number of newly infected: 3886
+-----------------------  END  -----------------------
+
+
+----------------------- STEP 5 -----------------------
+Number of new deaths: 3093
+Number of newly infected: 42
+-----------------------  END  -----------------------
+
+
+----------------------- STEP 6 -----------------------
+Number of new deaths: 36
+Number of newly infected: 0
+-----------------------  END  -----------------------
+
+
+----------------------- END OF SIMULATION -----------------------
+Total deaths: 7020
+Total infected: 8800

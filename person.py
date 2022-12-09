@@ -13,6 +13,7 @@ class Person(object):
         self.is_vaccinated = is_vaccinated
         self.infection = infection
         self.is_alive = True
+        self.infected = False
         pass
 
     def did_survive_infection(self):

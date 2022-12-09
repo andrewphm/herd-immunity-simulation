@@ -57,6 +57,18 @@ class Logger(object):
         with open(self.file_name, "a") as outfile:
             pass
 
+    def log_step_summary(self, step_number, new_deaths, new_infections):
+        with open(self.file_name, "a") as outfile:
+            outfile.write("\n")
+            outfile.write(
+                f"----------------------- STEP {step_number} -----------------------\n"
+            )
+            outfile.write(f"Number of new deaths: {new_deaths}\n")
+            outfile.write(f"Number of newly infected: {new_infections}\n")
+            outfile.write(
+                f"-----------------------  END  -----------------------\n\n"
+            )
+
     def log_infection_survival(
         self, step_number, population_count, number_of_new_fatalities
     ):
@@ -69,10 +81,12 @@ class Logger(object):
         #
         pass
 
-    def end_log(self):
+    def end_log(self, total_deaths, total_infected):
         with open(self.file_name, "a") as outfile:
             outfile.write("\n")
             outfile.write(
                 "----------------------- END OF SIMULATION -----------------------\n"
             )
+            outfile.write(f"Total deaths: {total_deaths}\n")
+            outfile.write(f"Total infected: {total_infected}")
             outfile.write("\n")
