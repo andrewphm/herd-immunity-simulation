@@ -1,111 +1,47 @@
 --------------------- BEGIN SIMULATION --------------------
 Population size: 100000
-Vaccinated rate: 0.9
+Vaccinated rate: 0.1
 Virus: Ebola
-Mortality rate: 0.7
+Mortality rate: 0.95
 Virus reproductive rate: 0.25
 Initial infected: 10
 -----------------------------------------------------------
 
 
 ----------------------- STEP 1 -----------------------
-Number of new deaths: 4
-Number of newly infected: 22
-Number of interactions this step: 1000
+Number of new deaths: 9
+Number of total deaths: 9
+Number of newly infected: 219
+Number of total vaccinated: 10001
 -----------------------  END  ------------------------
 
 
 ----------------------- STEP 2 -----------------------
-Number of new deaths: 17
-Number of newly infected: 61
-Number of interactions this step: 2200
+Number of new deaths: 210
+Number of total deaths: 219
+Number of newly infected: 4848
+Number of total vaccinated: 10010
 -----------------------  END  ------------------------
 
 
 ----------------------- STEP 3 -----------------------
-Number of new deaths: 44
-Number of newly infected: 158
-Number of interactions this step: 6100
+Number of new deaths: 4600
+Number of total deaths: 4819
+Number of newly infected: 59822
+Number of total vaccinated: 10258
 -----------------------  END  ------------------------
 
 
 ----------------------- STEP 4 -----------------------
-Number of new deaths: 112
-Number of newly infected: 358
-Number of interactions this step: 15800
------------------------  END  ------------------------
-
-
------------------------ STEP 5 -----------------------
-Number of new deaths: 257
-Number of newly infected: 798
-Number of interactions this step: 35800
------------------------  END  ------------------------
-
-
------------------------ STEP 6 -----------------------
-Number of new deaths: 561
-Number of newly infected: 1556
-Number of interactions this step: 79800
------------------------  END  ------------------------
-
-
------------------------ STEP 7 -----------------------
-Number of new deaths: 1062
-Number of newly infected: 2328
-Number of interactions this step: 155600
------------------------  END  ------------------------
-
-
------------------------ STEP 8 -----------------------
-Number of new deaths: 1638
-Number of newly infected: 2167
-Number of interactions this step: 232800
------------------------  END  ------------------------
-
-
------------------------ STEP 9 -----------------------
-Number of new deaths: 1487
-Number of newly infected: 1041
-Number of interactions this step: 216700
------------------------  END  ------------------------
-
-
------------------------ STEP 10 -----------------------
-Number of new deaths: 712
-Number of newly infected: 363
-Number of interactions this step: 104100
------------------------  END  ------------------------
-
-
------------------------ STEP 11 -----------------------
-Number of new deaths: 249
-Number of newly infected: 88
-Number of interactions this step: 36300
------------------------  END  ------------------------
-
-
------------------------ STEP 12 -----------------------
-Number of new deaths: 67
-Number of newly infected: 24
-Number of interactions this step: 8800
------------------------  END  ------------------------
-
-
------------------------ STEP 13 -----------------------
-Number of new deaths: 12
-Number of newly infected: 6
-Number of interactions this step: 2400
------------------------  END  ------------------------
-
-
------------------------ STEP 14 -----------------------
-Number of new deaths: 5
-Number of newly infected: 0
-Number of interactions this step: 600
+Number of new deaths: 56723
+Number of total deaths: 61542
+Number of newly infected: 25101
+Number of total vaccinated: 13357
 -----------------------  END  ------------------------
 
 
 ------------------- END OF SIMULATION ------------------
-Total deaths: 6227
-Total infected: 8980
+The simulation has ended because everyone has been vaccinated or is dead.
+Total living: 14621
+Total deaths: 85379
+Total vaccinated: 14621
